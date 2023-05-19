@@ -1,13 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Document Summarizer</title>
-  <link rel="stylesheet" type="text/css" href="popup.css">
-  <script src="popup.js"></script>
-</head>
-<body>
-  <div id="main-container">
-    <!-- Your Copilot-generated HTML code can go here for user input and interaction. -->
-  </div>
-</body>
+    <head>
+        <title>Document Summarization</title>
+        <link rel="stylesheet" type="text/css" href="popup.css">
+    </head>
+    <body>
+        <h1>Document Summarization</h1>
+        <div>
+            <label for="api-key">OpenAI API Key:</label>
+            <input type="text" id="api-key" name="api-key">
+        </div>
+        <div>
+            <label>Summarization Option:</label><br>
+            <input type="radio" id="extractive" name="summarization-option" value="extractive">
+            <label for="extractive">Extractive</label><br>
+            <input type="radio" id="abstractive" name="summarization-option" value="abstractive">
+            <label for="abstractive">Abstractive</label><br>
+            <input type="radio" id="both" name="summarization-option" value="both">
+            <label for="both">Both</label>
+        </div>
+        <div>
+            <label for="document">Document:</label>
+            <input type="file" id="fileInput" accept=".txt" />
+            <textarea id="document" name="document" rows="10"></textarea>
+        </div>
+        <button id="summarize-button">Summarize</button>
+        <h2>Summary:</h2>
+        <div id="summary"></div>
+        <h2>Error:</h2>
+        <div id="error"></div>
+        <script src="popup.js"></script>
+    </body>
 </html>

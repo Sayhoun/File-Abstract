@@ -1,26 +1,21 @@
 {
-    "manifest_version": 2,
-    "name": "Document Summarizer",
-    "version": "1.0",
-    "description": "Chrome extension for document summarization",
-    "permissions": ["activeTab"],
-    "background": {
+  "manifest_version": 2,
+  "name": "Document Summarization App",
+  "version": "0.1",
+  "description": "A Chrome Extension that uses OpenAI API for document summarization.",
+  "permissions": ["storage", "<all_urls>", "activeTab"],
+  "browser_action": {
+      "default_icon": "icon.png",
+      "default_popup": "popup.html"
+  },
+  "background": {
       "scripts": ["background.js"],
       "persistent": false
-    },
-    "browser_action": {
-      "default_popup": "popup.html",
-      "default_icon": {
-        "16": "icon16.png",
-        "48": "icon48.png",
-        "128": "icon128.png"
+  },
+  "content_scripts": [
+      {
+          "matches": ["<all_urls>"],
+          "js": ["contentScript.js"]
       }
-    },
-    "icons": {
-      "16": "icon16.png",
-      "48": "icon48.png",
-      "128": "icon128.png"
-    }
-  }
-// This file contains metadata and configuration for your Chrome extension.
-  
+  ]
+}
